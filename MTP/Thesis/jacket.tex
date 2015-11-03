@@ -1,0 +1,62 @@
+\documentclass{iitkgpthesis}
+
+% Jacket front
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+ \textbf{\large FIRST LINE OF THE TITLE GOES HERE}
+\end{center}
+ \vspace{-2.5em}
+\begin{center}
+ \textbf{\large FOLLOWED BY THE SECOND ONE}
+\end{center}
+% Uncomment the following if a third line is required
+%  \vspace{-2.5em}
+% \begin{center}
+%  \textbf{\large FOLLOWED BY THE THIRD ONE}
+% \end{center}
+\vfill
+\begin{flushright}
+\textbf{\textit{Sauvik Biswas}} 
+\end{flushright}
+
+% The tricky spine
+\newpage
+\thispagestyle{empty}
+\begin{landscape}
+ \begin{tabular*}{5in}{p{2mm}p{4mm}|p{140mm}|p{50mm}|p{4mm}p{2mm}p{4mm}}
+&&&&&&\\
+\multirow{3}{*}{\begin{rotate}{90}{~}\textbf{Ph.D.}\end{rotate}} &
+\multirow{3}{*}{\begin{rotate}{90}\textbf{Thesis}\end{rotate}} &
+First Line of the Thesis \newline followed by the second one& 
+\multirow{2}{*}{\textbf{Sauvik Biswas}}&
+\multirow{3}{*}{\begin{rotate}{90}{~}\includegraphics[scale=0.05]{iitlogo.pdf}\end{rotate}} & 
+\multirow{3}{*}{\begin{rotate}{90}{\scriptsize IIT KGP}\end{rotate}} & 
+\multirow{3}{*}{\begin{rotate}{90}{~}\textbf{2011}\end{rotate}} \\
+&&&&&&\\
+&&&&&&\\
+\end{tabular*}
+\end{landscape}
+
+% Jacket back
+\newpage
+\thispagestyle{empty}
+{~}
+\vfill
+\begin{center}
+\includegraphics[scale=0.12]{iitlogo.pdf}
+\end{center}
+ \vspace{-3em}
+\begin{center}
+\textbf{Department of Aerospace Engineering}
+\end{center}
+ \vspace{-3em}
+\begin{center}
+\textbf{Indian Institute of Technology, Kharagpur}
+\end{center}
+ \vspace{-3em}
+\begin{center}
+\textbf{India -- 721302}
+\end{center}
+
+\end{document}
