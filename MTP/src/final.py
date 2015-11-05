@@ -2,8 +2,8 @@ from Sensors import *
 import jdgeometry.geomfunctions as gf
 
 #--[Global Constants]----------------------------------------------------------
-SENSOR_TYPES = 5
-MAX_LOCS = 6
+SENSOR_TYPES = 6
+MAX_LOCS = 10
 MINX = 0
 MINY = 0
 MAXX = 400
@@ -105,8 +105,12 @@ def main():
     
     t1 = time.time()
 
-
-    if aoi.isCoveredBy(range(len(locs))):
+    cov = [0,1,5,7,9]
+    # Calculate the Perimeter Coverage Levels of all sensors
+    aoi.calcPCL()
+    
+    # If the AOI is covered or not
+    if aoi.isCoveredBy(cov): # range(len(locs))
         print "Covered"
     else:
         print "Not Covered"
@@ -116,7 +120,7 @@ def main():
                     
 #--[Print the Perimeter Covered Regions]----------------------------------------
 #     win.getMouse()
-    for i in range(0,len(locs)):
+    for i in cov: #range(len(locs)):
         sns = locs[i].sensor
         i_pt = locs[i].point
         

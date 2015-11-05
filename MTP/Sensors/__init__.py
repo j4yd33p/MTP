@@ -4,6 +4,11 @@ from jdgeometry import Point, Circle, Line, Polygon
 import random
 import time
 
+#--[Class Set Cover]-----------------------------------------------------------
+class SetCover:
+    
+#--[End Class Set Cover]-------------------------------------------------------
+
 #--[Class AreaOfInterest]------------------------------------------------------
 # Represents the Rectangular Area of Interest
 class AreaOfInterest:
@@ -58,7 +63,7 @@ class AreaOfInterest:
     def byLine(cls,l1, l2, l3, l4):
         return cls(l1,l2,l3,l4)
     
-    def isCoveredBy(self,locsIndexList):
+    def calcPCL(self):
     #--[Coverage Confirmation]-----------------------------------------------------
     
         locs = self.flocs
@@ -66,7 +71,7 @@ class AreaOfInterest:
         
     # Find out all the semsors whose sensing circle has a portion outside the bounding rectangle
         ##(Start)#################################################
-        for i in locsIndexList:
+        for i in range(len(locs)):
             tempCircle = Circle(locs[i].point, locs[i].sensor.s_range)
     #         tempCircle.draw(win)
     #         win.getMouse()
@@ -248,10 +253,14 @@ class AreaOfInterest:
                         
     
     #--[Angular Coverage]--------------------------------------------
+    def isCoveredBy(self,locsIndexList):
         # Sort overlaps in ascending order of starting angle
+
+        locs = self.flocs
+        sens = self.sensList
         
         areaNotCovered = False
-        for i in range(0,len(locs)):
+        for i in locsIndexList:
             oSns = locs[i].overlappingSensors
             oSns.sort(key=lambda obj: obj[2])
             
