@@ -94,7 +94,7 @@ class AreaOfInterest:
         
     # Find out all the semsors whose sensing circle has a portion outside the bounding rectangle
         ##(Start)#################################################
-        for i in range(len(locs)):
+        for i in indexSet:
             tempCircle = Circle(locs[i].point, locs[i].sensor.s_range)
     #         tempCircle.draw(win)
     #         win.getMouse()
@@ -167,19 +167,11 @@ class AreaOfInterest:
     
         ##(End)####################################################3
             
-        for i in range(0, len(locs)):
-    #         win.delete('all')
-    #         Circle(locs[i].point, sens[i].s_range).draw(win,outline='red')
-    #         Circle(locs[i].point,1).draw(win)
-    #         aoi.rect.draw(win)
-            
-            for j in range (0,len(locs)):
+        for i in indexSet:
+            for j in indexSet:
                 if (i == j):
                     continue
-                
-    #             Circle(locs[j].point, sens[j].s_range).draw(win)
-    #             win.getMouse()
-                
+
                 d_ij = locs[i].point.distance(locs[j].point)
     
     #--[Case 1]-------------------------------------------------------------------            
@@ -214,11 +206,7 @@ class AreaOfInterest:
                         else:
                             if x2 < x1 and y2 < y1:
                                 slope += math.pi    
-                        # if the circle is in the southern hemisphere then the arc start and end angle change
-    #                     if(x2 > x1):
-    #                         s_ang = slope - ang
-    #                     else:
-    #                         s_ang = math.pi + slope - ang
+
                         s_ang = slope - ang
                         e_ang = s_ang + 2 * ang
                      
@@ -259,11 +247,6 @@ class AreaOfInterest:
                         else:
                             if x2 < x1 and y2 < y1:
                                 slope += math.pi  
-                        # if the circle is in the southern hemisphere then the arc start and end angle change
-    #                     if(x2 > x1):
-    #                         s_ang = slope - ang
-    #                     else:
-    #                         s_ang = math.pi + slope - ang
                         
                         s_ang = slope - ang
                         e_ang = s_ang + 2 * ang
@@ -288,6 +271,8 @@ class AreaOfInterest:
         locs = self.flocs
         sens = self.sensList
         
+        self.calcPCL(locsIndexList)
+ 
         areaNotCovered = False
         for i in locsIndexList:
             oSns = locs[i].overlappingSensors

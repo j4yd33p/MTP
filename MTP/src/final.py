@@ -105,11 +105,20 @@ def main():
     
     t1 = time.time()
 
-    cov = [0,1,5,7,9]
-    # Calculate the Perimeter Coverage Levels of all sensors
-    aoi.calcPCL()
+#==[Find Set Covers]=======================================================
+# Sort the sensors as per the PCL values in non-decreasing order
+# Use greedy strategy and calculate set covers
+# Check coverage level of each cover
+#==========================================================================
     
-    # If the AOI is covered or not
+# Find the PCL for each sensor
+    aoi.calcPCL(range(len(locs)))
+
+# Sort the sensors as per their PCL
+# TODO: Yeaha se kaam shuru karna
+     
+    cov = [0,1,5,7,9,10,15]
+    # Calculate the Perimeter Coverage Levels of all sensors and then check if the AOI is covered or not
     if aoi.isCoveredBy(cov): # range(len(locs))
         print "Covered"
     else:
@@ -119,7 +128,7 @@ def main():
 ########################################################
                     
 #--[Print the Perimeter Covered Regions]----------------------------------------
-#     win.getMouse()
+
     for i in cov: #range(len(locs)):
         sns = locs[i].sensor
         i_pt = locs[i].point
