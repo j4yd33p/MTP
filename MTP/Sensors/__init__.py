@@ -5,8 +5,22 @@ import random
 import time
 
 #--[Class Set Cover]-----------------------------------------------------------
-class SetCover:
+class SensorSet:
     
+    __locs = []
+    
+    @property
+    def locs(self):
+        return self.__locs
+    
+    @locs.setter
+    def locs(self,locList):
+        self.__locs = locList
+        
+    def createSetCover(self,aoi,locsList):
+        for i in range(len(locsList)):
+            
+            cov = aoi.isCoveredBy()
 #--[End Class Set Cover]-------------------------------------------------------
 
 #--[Class AreaOfInterest]------------------------------------------------------
@@ -63,7 +77,16 @@ class AreaOfInterest:
     def byLine(cls,l1, l2, l3, l4):
         return cls(l1,l2,l3,l4)
     
-    def calcPCL(self):
+    ## Function to calculate the perimeter coverage of all the sensors in the AOI
+    # Uses private members as follows:-
+    #     (a) self.flocs - the list of all feasible locations of all sensors
+    #     (b) self.sensList - the list of all sensors of all sensor types
+    #
+    # @param indexSet: List of indices of locations and corresponding sensors to be checked
+    #
+    # Calculates the coverage of the perimeter of all sensors and saves it in a list associated with all sensors
+    
+    def calcPCL(self, indexSet):
     #--[Coverage Confirmation]-----------------------------------------------------
     
         locs = self.flocs
@@ -253,6 +276,12 @@ class AreaOfInterest:
                         
     
     #--[Angular Coverage]--------------------------------------------
+    # Check if the AOI is covered with the list of locations provided
+    # @param locsIndexList : the list of indices of locations which form the set to be checked for coverage. 
+    #                        They also index into the global sensor list
+    # @return : True - if the AOI is covered by the input set
+    #           False : otherwise
+    
     def isCoveredBy(self,locsIndexList):
         # Sort overlaps in ascending order of starting angle
 
