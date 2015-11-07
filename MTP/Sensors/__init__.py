@@ -334,12 +334,12 @@ class SensorLocation:
         
         # List of sensors whose sensing range overlaps the perimeter of the 
         # sensor located at this location
-        # Tuple:    (thisSensorCenter, 
-        #            overlapping_sensor_object, 
-        #            startAngleOfOverlap, 
-        #            endAngleOfOverlap, 
-        #            extent, 
-        #            distanceBetweenSensors )
+        # Tuple:    (thisSensorCenter_Point, 
+        #            overlapping_Sensor, 
+        #            startAngleOfOverlap_float, 
+        #            endAngleOfOverlap_float, 
+        #            extent_float, 
+        #            distanceBetweenSensors_float )
         self.overlappingSensors = []    
     
     ## Adds a sensor to the list of overlapping sensors

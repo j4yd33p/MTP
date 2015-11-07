@@ -113,10 +113,17 @@ def main():
     
 # Find the PCL for each sensor
     aoi.calcPCL(range(len(locs)))
-
+    
+    # Map sens list to corresponding element in locs list
+    # Sort this combination
+    # Then split this combined list
+    
+    sens, locs = zip( *sorted(zip(sens,locs), key=lambda k: len(k[1].overlappingSensors)) )
+    
 # Sort the sensors as per their PCL
+    
 # TODO: Yeaha se kaam shuru karna
-     
+    
     cov = [0,1,5,7,9,10,15]
     # Calculate the Perimeter Coverage Levels of all sensors and then check if the AOI is covered or not
     if aoi.isCoveredBy(cov): # range(len(locs))
