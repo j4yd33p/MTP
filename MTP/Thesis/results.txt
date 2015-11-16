@@ -1,0 +1,12 @@
+Results
+=======
+1. Area of 5km x 4km
+2. 6 types of sensors with following ranges
+	(a) 1.6km
+	(b) 2 km
+	(c) 2.5 km
+	(d) 1.4 km
+	(e) 2.5 km
+	(f) 1 km
+3. 2 feasible locations per sensor types
+4. 

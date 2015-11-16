@@ -287,13 +287,13 @@ class AreaOfInterest:
                     areaNotCovered = True
                     break;
                 else:
-                    if prevAng < oSns[j][3]:    # if the preAng is < endAngle, then
+                    if prevAng <= oSns[j][3]:    # if the preAng is < endAngle, then
                         prevAng = oSns[j][3]    #oSns[j][2] = endingAngleOfOverlap
            
             if areaNotCovered:
                 break
 
-        if areaNotCovered:
+        if areaNotCovered or prevAng < 2*math.pi:
             return False
         else:
             return True

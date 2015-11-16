@@ -1,0 +1,357 @@
+% This file was created with JabRef 2.10.
+% Encoding: Cp1252
+
+
+@InProceedings{arampatzis2005survey,
+  Title                    = {A survey of applications of wireless sensors and wireless sensor networks},
+  Author                   = {Arampatzis, Th and Lygeros, John and Manesis, S},
+  Booktitle                = {Intelligent Control, 2005. Proceedings of the 2005 IEEE International Symposium on, Mediterrean Conference on Control and Automation},
+  Year                     = {2005},
+  Organization             = {IEEE},
+  Pages                    = {719--724}
+}
+
+@InProceedings{bokareva2006wireless,
+  Title                    = {Wireless sensor networks for battlefield surveillance},
+  Author                   = {Bokareva, Tatiana and Hu, Wen and Kanhere, Salil and Ristic, Branko and Gordon, Neil and Bessell, Travis and Rutten, Mark and Jha, Sanjay},
+  Booktitle                = {Proceedings of the land warfare conference},
+  Year                     = {2006},
+  Pages                    = {1--8}
+}
+
+@InCollection{cai2006area,
+  Title                    = {An area-based collaborative sleeping protocol for wireless sensor networks},
+  Author                   = {Cai, Yanli and Li, Minglu and Wu, Min-You},
+  Booktitle                = {Frontiers of WWW Research and Development-APWeb 2006},
+  Publisher                = {Springer},
+  Year                     = {2006},
+  Pages                    = {449--460}
+}
+
+@Article{cardei2005improving,
+  Title                    = {Improving wireless sensor network lifetime through power aware organization},
+  Author                   = {Cardei, Mihaela and Du, Ding-Zhu},
+  Journal                  = {Wireless Networks},
+  Year                     = {2005},
+  Number                   = {3},
+  Pages                    = {333--340},
+  Volume                   = {11},
+
+  Publisher                = {Springer-Verlag New York, Inc.}
+}
+
+@InProceedings{Cardei2005,
+  Title                    = {Energy-efficient target coverage in wireless sensor networks},
+  Author                   = {Cardei, Mihaela and Thai, My T and Li, Yingshu and Wu, Weili},
+  Booktitle                = {INFOCOM 2005. 24th Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings IEEE},
+  Year                     = {2005},
+  Organization             = {IEEE},
+  Pages                    = {1976--1984},
+  Volume                   = {3}
+}
+
+@InProceedings{cardei2005maximum,
+  Title                    = {Maximum network lifetime in wireless sensor networks with adjustable sensing ranges},
+  Author                   = {Cardei, Mihaela and Wu, Jie and Lu, Mingming and Pervaiz, Mohammad O},
+  Booktitle                = {Wireless And Mobile Computing, Networking And Communications, 2005.(WiMob'2005), IEEE International Conference on},
+  Year                     = {2005},
+  Organization             = {IEEE},
+  Pages                    = {438--445},
+  Volume                   = {3}
+}
+
+@Article{Chakrabarty2002,
+  Title                    = {Grid coverage for surveillance and target location in distributed sensor networks},
+  Author                   = {Chakrabarty, Krishnendu and Iyengar, S Sitharama and Qi, Hairong and Cho, Eungchun},
+  Journal                  = {Computers, IEEE Transactions on},
+  Year                     = {2002},
+  Number                   = {12},
+  Pages                    = {1448--1453},
+  Volume                   = {51},
+
+  Owner                    = {null},
+  Publisher                = {IEEE},
+  Timestamp                = {2015.11.09}
+}
+
+@InCollection{Czyzowicz2010,
+  Title                    = {On minimizing the sum of sensor movements for barrier coverage of a line segment},
+  Author                   = {Czyzowicz, Jurek and Kranakis, Evangelos and Krizanc, Danny and Lambadaris, Ioannis and Narayanan, Lata and Opatrny, Jaroslav and Stacho, Ladislav and Urrutia, Jorge and Yazdani, Mohammadreza},
+  Booktitle                = {Ad-Hoc, Mobile and Wireless Networks},
+  Publisher                = {Springer},
+  Year                     = {2010},
+  Pages                    = {29--42},
+
+  Owner                    = {null},
+  Timestamp                = {2015.11.09}
+}
+
+@Book{dhillon2003sensor,
+  Title                    = {Sensor placement for effective coverage and surveillance in distributed sensor networks},
+  Author                   = {Dhillon, Santpal Singh and Chakrabarty, Krishnendu},
+  Publisher                = {IEEE},
+  Year                     = {2003},
+  Volume                   = {3}
+}
+
+@InCollection{gao2006sensor,
+  Title                    = {Sensor scheduling for k-coverage in wireless sensor networks},
+  Author                   = {Gao, Shan and Vu, Chinh T and Li, Yingshu},
+  Booktitle                = {Mobile Ad-hoc and Sensor Networks},
+  Publisher                = {Springer},
+  Year                     = {2006},
+  Pages                    = {268--280}
+}
+
+@InProceedings{hefeeda2007randomized,
+  Title                    = {Randomized k-coverage algorithms for dense sensor networks},
+  Author                   = {Hefeeda, Mohamed and Bagheri, Majid},
+  Booktitle                = {INFOCOM 2007. 26th IEEE International Conference on Computer Communications. IEEE},
+  Year                     = {2007},
+  Organization             = {IEEE},
+  Pages                    = {2376--2380}
+}
+
+@Article{heppes1997covering,
+  Title                    = {Covering a rectangle with equal circles},
+  Author                   = {Heppes, Alad{\'a}r and Melissen, Hans},
+  Journal                  = {Periodica Mathematica Hungarica},
+  Year                     = {1997},
+  Number                   = {1-2},
+  Pages                    = {65--81},
+  Volume                   = {34},
+
+  Publisher                = {Springer}
+}
+
+@Article{huang2005coverage,
+  Title                    = {The coverage problem in a wireless sensor network},
+  Author                   = {Huang, Chi-Fu and Tseng, Yu-Chee},
+  Journal                  = {Mobile Networks and Applications},
+  Year                     = {2005},
+  Number                   = {4},
+  Pages                    = {519--528},
+  Volume                   = {10},
+
+  Publisher                = {Springer-Verlag New York, Inc.}
+}
+
+@InProceedings{hung2009perimeter,
+  Title                    = {Perimeter coverage made practical in wireless sensor networks},
+  Author                   = {Hung, Ka-Shun and Lui, King-Shan},
+  Booktitle                = {Communications and Information Technology, 2009. ISCIT 2009. 9th International Symposium on},
+  Year                     = {2009},
+  Organization             = {IEEE},
+  Pages                    = {87--92}
+}
+
+@InProceedings{Kumar2005,
+  Title                    = {Barrier coverage with wireless sensors},
+  Author                   = {Kumar, Santosh and Lai, Ten H and Arora, Anish},
+  Booktitle                = {Proceedings of the 11th annual international conference on Mobile computing and networking},
+  Year                     = {2005},
+  Organization             = {ACM},
+  Pages                    = {284--298},
+
+  Owner                    = {null},
+  Timestamp                = {2015.11.09}
+}
+
+@Article{li2011sweep,
+  Title                    = {Sweep coverage with mobile sensors},
+  Author                   = {Li, Mo and Cheng, Weifang and Liu, Kebin and He, Yuan and Li, Xiangyang and Liao, Xiangke},
+  Journal                  = {Mobile Computing, IEEE Transactions on},
+  Year                     = {2011},
+  Number                   = {11},
+  Pages                    = {1534--1545},
+  Volume                   = {10},
+
+  Publisher                = {IEEE}
+}
+
+@Article{liu2006maximal,
+  Title                    = {Maximal lifetime scheduling for k to 1 sensor--target surveillance networks},
+  Author                   = {Liu, Hai and Wan, Pengjun and Jia, Xiaohua},
+  Journal                  = {Computer Networks},
+  Year                     = {2006},
+  Number                   = {15},
+  Pages                    = {2839--2854},
+  Volume                   = {50},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{Megerian2005,
+  Title                    = {Worst and best-case coverage in sensor networks},
+  Author                   = {Megerian, Seapahn and Koushanfar, Farinaz and Potkonjak, Miodrag and Srivastava, Mani B},
+  Journal                  = {Mobile Computing, IEEE Transactions on},
+  Year                     = {2005},
+  Number                   = {1},
+  Pages                    = {84--92},
+  Volume                   = {4},
+
+  Owner                    = {null},
+  Publisher                = {IEEE},
+  Timestamp                = {2015.11.09}
+}
+
+@Book{melissen1996improved,
+  Title                    = {Improved coverings of a square with six and eight equal circles},
+  Author                   = {Melissen, Jan B. M. and Schuur, PC},
+  Publisher                = {Vakgroep OMST},
+  Year                     = {1996}
+}
+
+@Article{nurmela2000covering,
+  Title                    = {Covering a square with up to 30 equal circles},
+  Author                   = {Nurmela, Kari J and {\"O}sterg{\aa}rd, Patric RJ},
+  Year                     = {2000},
+
+  Publisher                = {Citeseer}
+}
+
+@Book{Orourke,
+  Title                    = {Art gallery theorems and algorithms},
+  Author                   = {O'rourke, Joseph},
+  Publisher                = {Oxford University Press Oxford},
+  Volume                   = {57},
+
+  __markedentry            = {[Brown:]},
+  Date                     = {1987},
+  File                     = {[PDF] from uni-lj.si:C\:\\Users\\Brown\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\iywqs70w.default\\zotero\\storage\\4MB9I6CJ\\O'rourke - 1987 - Art gallery theorems and algorithms.pdf:application/pdf},
+  Owner                    = {Brown},
+  Timestamp                = {2015.11.13},
+  Url                      = {http://vlado.fmf.uni-lj.si/pub/networks/doc/ECPR/biblio-SUNBELT06.pdf},
+  Urldate                  = {2015-11-13}
+}
+
+@Article{Ram2007,
+  Title                    = {On the path coverage properties of random sensor networks},
+  Author                   = {Ram, S Sundhar and Manjunath, D and Iyer, Srikanth K and Yogeshwaran, D},
+  Journal                  = {Mobile Computing, IEEE Transactions on},
+  Year                     = {2007},
+  Number                   = {5},
+  Pages                    = {494--506},
+  Volume                   = {6},
+
+  Owner                    = {null},
+  Publisher                = {IEEE},
+  Timestamp                = {2015.11.09}
+}
+
+@InProceedings{sen2007coverage,
+  Title                    = {Coverage problem for sensors embedded in temperature sensitive environments},
+  Author                   = {Sen, Arunabha and Das, Nibedita and Zhou, Ling and Shen, Bao Hong and Murthy, Sudheendra and Bhattacharya, Prajesh},
+  Booktitle                = {Sensor, Mesh and Ad Hoc Communications and Networks, 2007. SECON'07. 4th Annual IEEE Communications Society Conference on},
+  Year                     = {2007},
+  Organization             = {IEEE},
+  Pages                    = {520--529}
+}
+
+@InCollection{stankovic2011realistic,
+  Title                    = {Realistic applications for wireless sensor networks},
+  Author                   = {Stankovic, John A and Wood, Anthony D and He, Tian},
+  Booktitle                = {Theoretical Aspects of Distributed Computing in Sensor Networks},
+  Publisher                = {Springer},
+  Year                     = {2011},
+  Pages                    = {835--863}
+}
+
+@Article{thai2008coverage,
+  Title                    = {Coverage problems in wireless sensor networks: designs and analysis},
+  Author                   = {Thai, My T and Wang, Feng and Du, David Hongwei and Jia, Xiaohua},
+  Journal                  = {International Journal of Sensor Networks},
+  Year                     = {2008},
+  Number                   = {3},
+  Pages                    = {191--200},
+  Volume                   = {3},
+
+  Publisher                = {Inderscience Publishers}
+}
+
+@Article{wang2011coverage,
+  Title                    = {Coverage problems in sensor networks: A survey},
+  Author                   = {Wang, Bang},
+  Journal                  = {ACM Computing Surveys (CSUR)},
+  Year                     = {2011},
+  Number                   = {4},
+  Pages                    = {32},
+  Volume                   = {43},
+
+  Publisher                = {ACM}
+}
+
+@Article{Wang2006,
+  Title                    = {Efficient point coverage in wireless sensor networks},
+  Author                   = {Wang, Jie and Zhong, Ning},
+  Journal                  = {Journal of Combinatorial Optimization},
+  Year                     = {2006},
+  Number                   = {3},
+  Pages                    = {291--304},
+  Volume                   = {11},
+
+  Owner                    = {null},
+  Publisher                = {Springer},
+  Timestamp                = {2015.11.09}
+}
+
+@InProceedings{wang2003integrated,
+  Title                    = {Integrated coverage and connectivity configuration in wireless sensor networks},
+  Author                   = {Wang, Xiaorui and Xing, Guoliang and Zhang, Yuanfang and Lu, Chenyang and Pless, Robert and Gill, Christopher},
+  Booktitle                = {Proceedings of the 1st international conference on Embedded networked sensor systems},
+  Year                     = {2003},
+  Organization             = {ACM},
+  Pages                    = {28--39},
+
+  __markedentry            = {[Brown:1]}
+}
+
+@Book{williams1979geometrical,
+  Title                    = {The geometrical foundation of natural structure},
+  Author                   = {Williams, Robert},
+  Publisher                = {Dover Publications},
+  Year                     = {1979}
+}
+
+@InProceedings{xu2008minimum,
+  Title                    = {Minimum-cost sensor coverage of planar regions},
+  Author                   = {Xu, Xiaochun and Sahni, Sartaj and Rao, Nageswara SV},
+  Booktitle                = {Information Fusion, 2008 11th International Conference on},
+  Year                     = {2008},
+  Organization             = {IEEE},
+  Pages                    = {1--8}
+}
+
+@InProceedings{zaidi2009minimum,
+  Title                    = {On minimum cost coverage in wireless sensor networks},
+  Author                   = {Zaidi, Syed Ali Raza and Hafeez, Maryam and Khayam, Syed A and McLernon, Desmond C and Ghogho, Mounir and Kim, K},
+  Booktitle                = {Information Sciences and Systems, 2009. CISS 2009. 43rd Annual Conference on},
+  Year                     = {2009},
+  Organization             = {IEEE},
+  Pages                    = {213--218}
+}
+
+@Article{zhang2005maintaining,
+  Title                    = {Maintaining sensing coverage and connectivity in large sensor networks},
+  Author                   = {Zhang, Honghai and Hou, Jennifer C},
+  Journal                  = {Ad Hoc \& Sensor Wireless Networks},
+  Year                     = {2005},
+  Number                   = {1-2},
+  Pages                    = {89--124},
+  Volume                   = {1},
+
+  Publisher                = {vol}
+}
+
+@Article{zhu2012survey,
+  Title                    = {A survey on coverage and connectivity issues in wireless sensor networks},
+  Author                   = {Zhu, Chuan and Zheng, Chunlin and Shu, Lei and Han, Guangjie},
+  Journal                  = {Journal of Network and Computer Applications},
+  Year                     = {2012},
+  Number                   = {2},
+  Pages                    = {619--632},
+  Volume                   = {35},
+
+  Publisher                = {Elsevier}
+}
+

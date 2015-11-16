@@ -1,16 +1,18 @@
+import sys
+sys.path.append('E:\\git_repos\\MTP\\MTP')
 from Sensors import *
 import jdgeometry.geomfunctions as gf
 
 #--[Global Constants]----------------------------------------------------------
 SENSOR_TYPES = 6
-MAX_LOCS = 10
+MAX_LOCS = 3
 MINX = 0
 MINY = 0
-MAXX = 400
-MAXY = 400
+MAXX = 800
+MAXY = 800
 AOI_P1 = Point(20,20) #Point(MINX+10, MINY+10)
-AOI_P2 = Point(200,200) #Point(MAXX-10,MAXY-10)
-
+AOI_P2 = Point(420,520) #Point(MAXX-10,MAXY-10)
+## Scale used is 1pixel = 10 km on ground
         
 #--[Main Function]-------------------------------------------------------------
 def main():
@@ -25,7 +27,7 @@ def main():
     
 #--[Sensor Types Attributes]---------------------------------------------------
     # 1. Range 
-    Rs = [60,20,30,40,45,50,60,70,80,90]
+    Rs = [160,200,250,140,245,250,100,270,280,275]
     
     # 2. Cost
     Cs = [1,1,1,1,1,1,1,1,1,1,1]
@@ -114,51 +116,60 @@ def main():
 # Find the PCL for each sensor
     aoi.calcPCL(range(len(locs)))
     
+    if aoi.isCoveredBy(range(len(locs))):
+        print "Cov"
+    else:
+        print "Not Cov"
+    
+    
+    for i in range(len(locs)):
+        Circle(locs[i].point,locs[i].sensor.s_range).draw(win)
+    
+    win.getMouse()
+    return
+    #==[PCL Sort]=========================================
+    # Sort the sensors as per their PCL
     # Map sens list to corresponding element in locs list
     # Sort this combination
     # Then split this combined list
-    
+    #=====================================================
     sens, locs = zip( *sorted(zip(sens,locs), key=lambda k: len(k[1].overlappingSensors)) )
     
-# Sort the sensors as per their PCL
-    
-# TODO: Yeaha se kaam shuru karna
-    
-    cov = [0,1,5,7,9,10,15]
-    # Calculate the Perimeter Coverage Levels of all sensors and then check if the AOI is covered or not
-    if aoi.isCoveredBy(cov): # range(len(locs))
-        print "Covered"
-    else:
-        print "Not Covered"
+    setcovers = []
+    i=0
+    for sj in range(len(sens)):
+        # Check if the ith set cover exists or not
+        if len(setcovers) <= i : # if the length = the present index, means last valid indexs is (length - 1) 
+            # ith set cover doesnt exist
+            setcovers.append((sj,))
+            print "Creating cover %d" % i
+            continue
+
+        print "I=%d" % i
+        print setcovers[i]
+        is_covered = aoi.isCoveredBy(setcovers[i])
         
+        if not is_covered:
+            # if this set doesnt cover the AOI, then append another sensor to this set
+            setcovers[i] += (sj,)
+        else:
+            # if the set of sensors covers the AOI, then create the next cover
+            i = i + 1
     
-########################################################
+##[End Set Covers]#############################################################
                     
 #--[Print the Perimeter Covered Regions]----------------------------------------
 
-    for i in cov: #range(len(locs)):
-        sns = locs[i].sensor
+    for i in setcovers[0]: #range(len(locs)):
+        sns =  locs[i].sensor
         i_pt = locs[i].point
         
-        for l_item in locs[i].overlappingSensors:
-            j_pt = l_item[0]
-            o_sns = l_item[1]
-            s_angle = l_item[2]
-            extent = l_item[4]
-                 
-            s_ang = s_angle * 180 / math.pi
-            ext = extent * 180 / math.pi
-            
-            Circle(i_pt, sns.s_range).draw(win)
-#             arc = Arc(i_pt,sns.s_range, s_ang, ext)
-#             arc.draw(win,outline='blue',style='chord', activefill='blue')
-               
-        #win.getMouse()
+        Circle(i_pt, sns.s_range).draw(win)
     
     t2 = time.time()
     print "Time spent = %d" % (t2-t1)
     win.getMouse()
-    
+
 
 if __name__ == "__main__":
     main()
