@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}% http://ctan.org/pkg/algorithm2e
+\DontPrintSemicolon
+\begin{document}
+
+\begin{algorithm}[H]
+	\KwIn{$S$ the set of sensors }
+	\KwOut{$C$ the set of subsets covering the region }
+	
+	Sort $S$ in non-increasing order of sensor ranges\;
+	\While{$S$ is not empty} {
+		$cov_i$ = isCoveredBy ($C_i$) \;
+	
+		\eIf{$cov_i$ $<$ $k$  }{
+			$node$ = the first sensor in $S$\;
+			Add $node$ to $C_i$\;
+			Remove $node$ from $S$\;	
+		}{
+			Add $C_i$ to $C$\;
+			$i$++\;
+		}
+	}
+		
+	Output $C$\;
+
+\caption {Get set of subsets covering the region}
+\end{algorithm}
+
+\end{document}

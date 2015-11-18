@@ -2,6 +2,19 @@
 % Encoding: Cp1252
 
 
+@Article{akyildiz2002wireless,
+  Title                    = {Wireless sensor networks: a survey},
+  Author                   = {Akyildiz, Ian F and Su, Weilian and Sankarasubramaniam, Yogesh and Cayirci, Erdal},
+  Journal                  = {Computer networks},
+  Year                     = {2002},
+  Number                   = {4},
+  Pages                    = {393--422},
+  Volume                   = {38},
+
+  __markedentry            = {},
+  Publisher                = {Elsevier}
+}
+
 @InProceedings{arampatzis2005survey,
   Title                    = {A survey of applications of wireless sensors and wireless sensor networks},
   Author                   = {Arampatzis, Th and Lygeros, John and Manesis, S},
@@ -17,6 +30,15 @@
   Booktitle                = {Proceedings of the land warfare conference},
   Year                     = {2006},
   Pages                    = {1--8}
+}
+
+@InProceedings{de2010multi,
+  Title                    = {Multi purpose acoustic vector sensors for battlefield acoustics},
+  Author                   = {de Bree, HE and Wind, Ir Jelmer and Druyvesteyn, Ir Erik and te Kulve, H},
+  Booktitle                = {Proceedings of the DAMA Conference},
+  Year                     = {2010},
+
+  __markedentry            = {}
 }
 
 @InCollection{cai2006area,
@@ -101,6 +123,18 @@
   Publisher                = {Springer},
   Year                     = {2006},
   Pages                    = {268--280}
+}
+
+@Article{haig2004networked,
+  Title                    = {Networked unattended ground sensors for battlefield visualization},
+  Author                   = {Haig, Zsolt},
+  Journal                  = {TECHNOLOGY},
+  Year                     = {2004},
+  Number                   = {3},
+  Pages                    = {387--399},
+  Volume                   = {3},
+
+  __markedentry            = {}
 }
 
 @InProceedings{hefeeda2007randomized,
@@ -202,6 +236,17 @@
   Year                     = {1996}
 }
 
+@InProceedings{muraleedharan2006jamming,
+  Title                    = {Jamming attack detection and countermeasures in wireless sensor network using ant system},
+  Author                   = {Muraleedharan, Rajani and Osadciw, Lisa A},
+  Booktitle                = {Defense and Security Symposium},
+  Year                     = {2006},
+  Organization             = {International Society for Optics and Photonics},
+  Pages                    = {62480G--62480G},
+
+  __markedentry            = {}
+}
+
 @Article{nurmela2000covering,
   Title                    = {Covering a square with up to 30 equal circles},
   Author                   = {Nurmela, Kari J and {\"O}sterg{\aa}rd, Patric RJ},
@@ -223,6 +268,19 @@
   Timestamp                = {2015.11.13},
   Url                      = {http://vlado.fmf.uni-lj.si/pub/networks/doc/ECPR/biblio-SUNBELT06.pdf},
   Urldate                  = {2015-11-13}
+}
+
+@Article{paul2006smart,
+  Title                    = {Smart Sensor Web: tactical battlefield visualization using sensor fusion},
+  Author                   = {Paul, Jeffrey L},
+  Journal                  = {Aerospace and Electronic Systems Magazine, IEEE},
+  Year                     = {2006},
+  Number                   = {1},
+  Pages                    = {13--20},
+  Volume                   = {21},
+
+  __markedentry            = {},
+  Publisher                = {IEEE}
 }
 
 @Article{Ram2007,
@@ -303,7 +361,7 @@
   Organization             = {ACM},
   Pages                    = {28--39},
 
-  __markedentry            = {[Brown:1]}
+  __markedentry            = {}
 }
 
 @Book{williams1979geometrical,
@@ -313,6 +371,19 @@
   Year                     = {1979}
 }
 
+@Article{xu2006jamming,
+  Title                    = {Jamming sensor networks: attack and defense strategies},
+  Author                   = {Xu, Wenyuan and Ma, Ke and Trappe, Wade and Zhang, Yanyong},
+  Journal                  = {Network, IEEE},
+  Year                     = {2006},
+  Number                   = {3},
+  Pages                    = {41--47},
+  Volume                   = {20},
+
+  __markedentry            = {},
+  Publisher                = {IEEE}
+}
+
 @InProceedings{xu2008minimum,
   Title                    = {Minimum-cost sensor coverage of planar regions},
   Author                   = {Xu, Xiaochun and Sahni, Sartaj and Rao, Nageswara SV},
@@ -320,6 +391,19 @@
   Year                     = {2008},
   Organization             = {IEEE},
   Pages                    = {1--8}
+}
+
+@Article{yang2006connected,
+  Title                    = {On connected multiple point coverage in wireless sensor networks},
+  Author                   = {Yang, Shuhui and Dai, Fei and Cardei, Mihaela and Wu, Jie and Patterson, Floyd},
+  Journal                  = {International Journal of Wireless Information Networks},
+  Year                     = {2006},
+  Number                   = {4},
+  Pages                    = {289--301},
+  Volume                   = {13},
+
+  __markedentry            = {[Brown:1]},
+  Publisher                = {Springer}
 }
 
 @InProceedings{zaidi2009minimum,
@@ -341,6 +425,17 @@
   Volume                   = {1},
 
   Publisher                = {vol}
+}
+
+@InProceedings{zhou2004connected,
+  Title                    = {Connected k-coverage problem in sensor networks},
+  Author                   = {Zhou, Zongheng and Das, Samir and Gupta, Himanshu},
+  Booktitle                = {Computer Communications and Networks, 2004. ICCCN 2004. Proceedings. 13th International Conference on},
+  Year                     = {2004},
+  Organization             = {IEEE},
+  Pages                    = {373--378},
+
+  __markedentry            = {[Brown:1]}
 }
 
 @Article{zhu2012survey,
