@@ -9,12 +9,19 @@ class Point(geom.Point):
         
         self.obj.draw(canvas)
         
+    def undraw(self):
+        self.obj.undraw()
+        
+        
 class Circle (geom.Circle):
     def draw(self,canvas, **options):
         self.obj = gr.Circle(gr.Point(self.center.x, self.center.y),self.radius)
         if options.has_key('outline'):
             self.obj.setOutline(options['outline'])
         self.obj.draw(canvas)
+
+    def undraw(self):
+        self.obj.undraw()
 
 class Ellipse(geom.Ellipse):
     def __init__(self,center, hradius, vradius, eccentricity):
@@ -28,13 +35,26 @@ class Ellipse(geom.Ellipse):
         p2 = gr.Point(self.center.x + self.hradius, self.center.y + self.vradius)
         self.obj = gr.Oval(p1,p2)
         self.obj.draw(canvas,*options)
+
+    def undraw(self):
+        self.obj.undraw()
         
 class Line(geom.Line):
-    def draw(self,canvas, *options):
+    def draw(self,canvas, **options):
         p1 = gr.Point(self.p1.x,self.p1.y)
         p2 = gr.Point(self.p2.x,self.p2.y)
         self.obj = gr.Line(p1,p2)
-        self.obj.draw(canvas,*options)
+        
+        if options.has_key('outline'):
+            self.obj.setOutline(options['outline'])
+        self.obj.draw(canvas)
+        
+    @property
+    def length(self):
+        return self.p1.distance(self.p2)
+    
+    def undraw(self):
+        self.obj.undraw()
 
 class Polygon(geom.Polygon):
     def draw(self,canvas, *options):
@@ -42,9 +62,15 @@ class Polygon(geom.Polygon):
         self.obj = gr.Polygon(_ptList)
         self.obj.draw(canvas,*options)
         
+    def undraw(self):
+        self.obj.undraw()
+
 #--[Class Arc]-----------------------------------------------------------------
 # Extend Graphics.py to incorporate an arc
 class Arc(gr._BBox):
+    _canvas = None 
+    _id = None
+    
     def __init__(self, center, radius, startAngle, extent):
         p1 = gr.Point(center.x-radius, center.y-radius)
         p2 = gr.Point(center.x+radius, center.y+radius)
@@ -59,6 +85,7 @@ class Arc(gr._BBox):
         return other
    
     def draw(self, canvas, **options):
+        self._canvas = canvas
         p1 = self.p1
         p2 = self.p2
         opt = {'start':self.startAngle, 'extent':self.extent}
@@ -74,4 +101,7 @@ class Arc(gr._BBox):
         # outline = the outline color of the arc
         # fill = fill color of the arc
         # style = tk.PIESLICE or tk.ARC or tk.CHORD 
-        return canvas.create_arc((x1,y1,x2,y2),opt)         
+        self._id = canvas.create_arc((x1,y1,x2,y2),opt)         
+
+    def undraw(self):
+        self._canvas.delete(self._id)

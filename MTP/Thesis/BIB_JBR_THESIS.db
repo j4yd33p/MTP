@@ -11,7 +11,6 @@
   Pages                    = {393--422},
   Volume                   = {38},
 
-  __markedentry            = {},
   Publisher                = {Elsevier}
 }
 
@@ -36,9 +35,22 @@
   Title                    = {Multi purpose acoustic vector sensors for battlefield acoustics},
   Author                   = {de Bree, HE and Wind, Ir Jelmer and Druyvesteyn, Ir Erik and te Kulve, H},
   Booktitle                = {Proceedings of the DAMA Conference},
-  Year                     = {2010},
+  Year                     = {2010}
+}
 
-  __markedentry            = {}
+@Article{Burrell2004,
+  Title                    = {Vineyard computing:Sensor networks in agricultural production},
+  Author                   = {J Burrell and T Brooke and R Beckwith},
+  Journal                  = {IEEE Pervasive Computing},
+  Year                     = {2004},
+  Number                   = {1},
+  Pages                    = {38--45},
+  Volume                   = {3},
+
+  __markedentry            = {[Brown:6]},
+  Language                 = {english},
+  Owner                    = {Brown},
+  Timestamp                = {2015.11.20}
 }
 
 @InCollection{cai2006area,
@@ -80,6 +92,19 @@
   Organization             = {IEEE},
   Pages                    = {438--445},
   Volume                   = {3}
+}
+
+@Conference{CerpaApr.2001,
+  Title                    = {Habitat monitoring: Application driver for wireless communications},
+  Author                   = {A Cerpa and J Elson and D Estrin and L Girod and M Hamilton and J Zhao},
+  Year                     = {Apr. 2001},
+
+  Address                  = {San José, Costa Rica,},
+  Organization             = {ACM SIGCOMM Workshop on Data Communications in Latin America and the Caribbean},
+
+  __markedentry            = {[Brown:6]},
+  Owner                    = {Brown},
+  Timestamp                = {2015.11.20}
 }
 
 @Article{Chakrabarty2002,
@@ -132,9 +157,7 @@
   Year                     = {2004},
   Number                   = {3},
   Pages                    = {387--399},
-  Volume                   = {3},
-
-  __markedentry            = {}
+  Volume                   = {3}
 }
 
 @InProceedings{hefeeda2007randomized,
@@ -215,6 +238,19 @@
   Publisher                = {Elsevier}
 }
 
+@Conference{MainwaringSept.2002,
+  Title                    = {Wireless sensor networks for habitat monitoring},
+  Author                   = {A Mainwaring and J Polastre and R Szewczyk and D Culler and J Anderson},
+  Year                     = {Sept. 2002},
+
+  Address                  = {Atlanta, GA,},
+  Organization             = {First ACM Workshop on Wireless Sensor Networks and Applications},
+
+  __markedentry            = {[Brown:6]},
+  Owner                    = {Brown},
+  Timestamp                = {2015.11.20}
+}
+
 @Article{Megerian2005,
   Title                    = {Worst and best-case coverage in sensor networks},
   Author                   = {Megerian, Seapahn and Koushanfar, Farinaz and Potkonjak, Miodrag and Srivastava, Mani B},
@@ -242,9 +278,7 @@
   Booktitle                = {Defense and Security Symposium},
   Year                     = {2006},
   Organization             = {International Society for Optics and Photonics},
-  Pages                    = {62480G--62480G},
-
-  __markedentry            = {}
+  Pages                    = {62480G--62480G}
 }
 
 @Article{nurmela2000covering,
@@ -260,8 +294,6 @@
   Author                   = {O'rourke, Joseph},
   Publisher                = {Oxford University Press Oxford},
   Volume                   = {57},
-
-  __markedentry            = {[Brown:]},
   Date                     = {1987},
   File                     = {[PDF] from uni-lj.si:C\:\\Users\\Brown\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\iywqs70w.default\\zotero\\storage\\4MB9I6CJ\\O'rourke - 1987 - Art gallery theorems and algorithms.pdf:application/pdf},
   Owner                    = {Brown},
@@ -279,7 +311,6 @@
   Pages                    = {13--20},
   Volume                   = {21},
 
-  __markedentry            = {},
   Publisher                = {IEEE}
 }
 
@@ -359,9 +390,7 @@
   Booktitle                = {Proceedings of the 1st international conference on Embedded networked sensor systems},
   Year                     = {2003},
   Organization             = {ACM},
-  Pages                    = {28--39},
-
-  __markedentry            = {}
+  Pages                    = {28--39}
 }
 
 @Book{williams1979geometrical,
@@ -380,7 +409,6 @@
   Pages                    = {41--47},
   Volume                   = {20},
 
-  __markedentry            = {},
   Publisher                = {IEEE}
 }
 
@@ -401,8 +429,6 @@
   Number                   = {4},
   Pages                    = {289--301},
   Volume                   = {13},
-
-  __markedentry            = {[Brown:1]},
   Publisher                = {Springer}
 }
 
@@ -433,9 +459,7 @@
   Booktitle                = {Computer Communications and Networks, 2004. ICCCN 2004. Proceedings. 13th International Conference on},
   Year                     = {2004},
   Organization             = {IEEE},
-  Pages                    = {373--378},
-
-  __markedentry            = {[Brown:1]}
+  Pages                    = {373--378}
 }
 
 @Article{zhu2012survey,
@@ -448,5 +472,13 @@
   Volume                   = {35},
 
   Publisher                = {Elsevier}
+}
+
+@Other{,
+  Title                    = {Self-healing Mines},
+  __markedentry            = {[Brown:6]},
+  Owner                    = {Brown},
+  Timestamp                = {2015.11.20},
+  Url                      = {www.globalsecurity.org/military/systems/munitions/shm.htm}
 }
 

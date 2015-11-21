@@ -1,8 +1,9 @@
 import math
 import graphics as gr
-from jdgeometry import Point, Circle, Line, Polygon
+from jdgeometry import Point, Circle, Line, Polygon, Arc
 import random
 import time
+from jdgeometry.geomfunctions import toRad, toDeg
 
 #--[Class Set Cover]-----------------------------------------------------------
 class SensorSet:
@@ -37,6 +38,7 @@ class AreaOfInterest:
     diag = None
     _flocs = None
     _sensList = None
+    _win = None
     
     @property
     def sensList(self):
@@ -88,16 +90,22 @@ class AreaOfInterest:
     
     def calcPCL(self, indexSet):
     #--[Coverage Confirmation]-----------------------------------------------------
-    
+        
+        win = self._win
         locs = self.flocs
         sens = self.sensList
         
     # Find out all the semsors whose sensing circle has a portion outside the bounding rectangle
         ##(Start)#################################################
         for i in indexSet:
+            locs[i].clearOverlappingSensors()
             tempCircle = Circle(locs[i].point, locs[i].sensor.s_range)
-    #         tempCircle.draw(win)
-    #         win.getMouse()
+
+#             win.delete("all")
+#             self.rect.draw(win)
+#             tempCircle.draw(win,outline="red")
+#             win.getMouse()
+
             intPoints = tempCircle.intersection(self.rect)
             if len(intPoints) == 0 or intPoints == None :
                 if sens[i].s_range >= self.diag/2:
@@ -110,6 +118,9 @@ class AreaOfInterest:
                     # line from the center to the intersection points of length sensor_range
                     l1 = Line(locs[i].point, intPoints[j])
                     l2 = Line(locs[i].point, intPoints[j+1])
+                    
+#                     l1.draw(self._win,outline="red")
+#                     l2.draw(self._win,outline="green")
                     
                     # Center location of the sensor
                     cx = locs[i].point.x
@@ -138,7 +149,8 @@ class AreaOfInterest:
                         
                     # The angle of the sector formed by the two intersection points
                     ang = abs(l1_ang - l2_ang)
-                    
+              
+                       
                     # Check if the sensor range cuts the right most boundary of the aoi
                     if ( (self.l3.contains(intPoints[j]) and self.l3.contains(intPoints[j+1])) or\
                          (self.l2.contains(intPoints[j]) and self.l3.contains(intPoints[j+1]) ) or\
@@ -156,18 +168,57 @@ class AreaOfInterest:
                         else:
                             s_ang = l2_ang
                         
+#                     if ( (self.l1.contains(intPoints[j]) and self.l4.contains(intPoints[j+1])) ):
+#                         if ( (locs[i].point.y > (self.l1.p1.y + self.l1.length / 2) ) or\
+#                              (locs[i].point.x > (self.l1.p1.x + self.l4.length / 2) )):
+#                             s_ang = l1_ang
+#                             ang = 2*math.pi - ang
+#                         else:
+#                             s_ang = l2_ang
+#                             ang = 2*math.pi - ang
+#                             
+#                     else:
+#                         s_ang = l2_ang
+#                         ang = 2*math.pi - ang
+#                         
+                    if ( (self.l1.contains(intPoints[j]) and self.l3.contains(intPoints[j+1])) ):
+                        if locs[i].point.y > (self.l1.p1.y + self.l1.length / 2):
+                            s_ang = l2_ang
+                            ang = 2*math.pi - ang
+                        else:
+                            s_ang = l1_ang
+                            ang = 2*math.pi - ang
+                             
+                    if ( (self.l2.contains(intPoints[j]) and self.l4.contains(intPoints[j+1])) ):
+                        if locs[i].point.x > (self.l2.p1.x + self.l2.length / 2):
+                            s_ang = l2_ang
+                            ang = 2*math.pi - ang
+                        else:
+                            s_ang = l1_ang
+
                     e_ang = s_ang + ang
                     extent = ang * 180/math.pi
                     
-                    
+#                     if s_ang > 2*math.pi or e_ang > 2*math.pi:
+#                         print "for sensor %d, s_ang = %f, e_ang=%f" %(i,toDeg(s_ang),toDeg(e_ang))
+#                         tempCircle.draw(self._win,outline="brown")
+#                         self._win.getMouse()
+                        
                     locs[i].addOverlappingSensor( None, None, s_ang, e_ang, ang, 0 )
-    #                 gr.Circle(locs[i].point,locs[i].sensor.s_range).draw(win)
-    #                 Arc(locs[i].point,locs[i].sensor.s_range,s_ang * 180/math.pi,extent).draw(win,outline='red',style='pieslice')
-    #                 win.getMouse()
-    
+#                     gr.Circle(locs[i].point,locs[i].sensor.s_range).draw(win)
+#                     Arc(locs[i].point,locs[i].sensor.s_range,s_ang * 180/math.pi,extent).draw(win,outline='red',style='arc')
+#                     win.getMouse()
+
+            
         ##(End)####################################################3
             
         for i in indexSet:
+            
+#             win.delete("all")
+#             self.rect.draw(win)
+#             Circle(locs[i].point,locs[i].sensor.s_range).draw(win,outline="red")
+#             print "Red=(%f, %f) Radius = %f" %(locs[i].point.x,locs[i].point.y, locs[i].sensor.s_range)
+            
             for j in indexSet:
                 if (i == j):
                     continue
@@ -195,19 +246,25 @@ class AreaOfInterest:
                         x2 = locs[j].point.x
                         y1 = locs[i].point.y
                         x1 = locs[i].point.x
+                        line_ci_cj = Line(locs[i].point, locs[j].point)
                         
-                        slope = math.atan((y2-y1) / (x2-x1))
+                        if x2 == x1:
+                            slopeAng = math.pi/2
+                        else:
+                            slopeAng = math.atan((y2-y1) / (x2-x1))
+                            
+                        #slopeAng = math.atan(line_ci_cj.slope)
                         
-                        if slope < 0:
+                        if slopeAng < 0:
                             if x2 < x1:
-                                slope += math.pi
+                                slopeAng += math.pi
                             if y2 < y1:
-                                slope += math.pi * 2
+                                slopeAng += math.pi * 2
                         else:
                             if x2 < x1 and y2 < y1:
-                                slope += math.pi    
+                                slopeAng += math.pi    
 
-                        s_ang = slope - ang
+                        s_ang = slopeAng - ang
                         e_ang = s_ang + 2 * ang
                      
                         locs[i].addOverlappingSensor( locs[j].point, locs[j].sensor, s_ang, e_ang, 2*ang, d_ij )
@@ -218,7 +275,7 @@ class AreaOfInterest:
                         
     #--[Case 2]-------------------------------------------------------------------                    
                 # Case 2:- center of sensor j is inside of the range of sensor i
-                if(d_ij < locs[i].sensor.s_range):
+                if(d_ij <= locs[i].sensor.s_range):
                     rj = locs[j].sensor.s_range
                     ri = locs[i].sensor.s_range
                     # if the distance between two sensors is < the sum of radii, 
@@ -237,18 +294,21 @@ class AreaOfInterest:
                         y1 = locs[i].point.y
                         x1 = locs[i].point.x
                         
-                        slope = math.atan((y2-y1)/(x2-x1))
+                        if x2 == x1:
+                            slopeAng = math.pi/2
+                        else:
+                            slopeAng = math.atan((y2-y1)/(x2-x1))
                 
-                        if slope < 0:
+                        if slopeAng < 0:
                             if x2 < x1:
-                                slope += math.pi
+                                slopeAng += math.pi
                             if y2 < y1:
-                                slope += math.pi * 2
+                                slopeAng += math.pi * 2
                         else:
                             if x2 < x1 and y2 < y1:
-                                slope += math.pi  
+                                slopeAng += math.pi  
                         
-                        s_ang = slope - ang
+                        s_ang = slopeAng - ang
                         e_ang = s_ang + 2 * ang
                         
                         locs[i].addOverlappingSensor( locs[j].point, locs[j].sensor, s_ang, e_ang, 2*ang , d_ij ) 
@@ -257,7 +317,15 @@ class AreaOfInterest:
                         # whole perimeter of sensor i is covered by sensor j
                         locs[i].addOverlappingSensor( locs[j].point, locs[j].sensor, 0, 2*math.pi, 360, d_ij ) 
                         
-    
+#             for u in range (len(locs[i].overlappingSensors)):
+#                 s = locs[i].overlappingSensors[u][1]
+#                 if s != None :
+#                     print "Blue=(%f, %f) Radius = %f" %(locs[s.curloc].point.x,locs[s.curloc].point.y, s.s_range)
+#                     p = locs[s.curloc].point
+#                     p.draw(win)
+#                     Circle(p, s.s_range).draw(win,outline="blue")
+#                     win.getMouse()
+#                     p.undraw()
     #--[Angular Coverage]--------------------------------------------
     # Check if the AOI is covered with the list of locations provided
     # @param locsIndexList : the list of indices of locations which form the set to be checked for coverage. 
@@ -272,25 +340,38 @@ class AreaOfInterest:
         sens = self.sensList
         
         self.calcPCL(locsIndexList)
- 
+        
         areaNotCovered = False
         for i in locsIndexList:
             oSns = locs[i].overlappingSensors
+            ploc = locs[i].point
+#             print "Sensor id=%d-----------------------------" % i
             oSns.sort(key=lambda obj: obj[2])
-            
+#             print "present sensor = %d" , i
+           
 #             for j in range(len(oSns)):
 #                 print "(%f, %f)" % (oSns[j][2],oSns[j][3])
+                
             # Check if the entire range of 0-360 deg is covered or not for each sensor
             prevAng = 0.0
-            for j in range(0, len(oSns)):
+            for j in range(len(oSns)):
+#                 print "[%f, %f]" % (oSns[j][2], oSns[j][3])
                 if oSns[j][2] > prevAng:    #oSns[j][2] = startingAngleOfOverlap
+                    print "Area not covered (prevEnd, start, end)=(%f,%f,%f)" % (prevAng, oSns[j][2],oSns[j][3])
+
                     areaNotCovered = True
                     break;
                 else:
                     if prevAng <= oSns[j][3]:    # if the preAng is < endAngle, then
                         prevAng = oSns[j][3]    #oSns[j][2] = endingAngleOfOverlap
+                
+                if prevAng >= 2 * math.pi:
+                    break
            
-            if areaNotCovered:
+            if areaNotCovered or prevAng < 2*math.pi:
+                Circle(locs[i].point,locs[i].sensor.s_range).draw(self._win,outline="green")
+                Arc(locs[i].point,locs[i].sensor.s_range, prevAng, 2*math.pi - prevAng,).draw(self._win,outline='red',style='arc')
+                print "No overlap in sensor type %d loc = (%f, %f) , range = %d from %f to %f" % (i, locs[i].point.x.evalf(), locs[i].point.y.evalf(),locs[i].sensor.s_range, toDeg(prevAng), 360 - toDeg(prevAng))
                 break
 
         if areaNotCovered or prevAng < 2*math.pi:
@@ -341,7 +422,8 @@ class SensorLocation:
         #            extent_float, 
         #            distanceBetweenSensors_float )
         self.overlappingSensors = []    
-    
+        self.overlappingCount = 0   # Actual number of circles that overlap; Sometimes [see in addOverlappingSensor()] we add more than one circle
+        
     ## Adds a sensor to the list of overlapping sensors
     # @param sensorCenter: The center Point of the overlapping sensor
     # @param sensor: The object of the sensor class which is being added(i.e which is overalapping)
@@ -353,18 +435,39 @@ class SensorLocation:
 
         
         normal = False
+        
+        while startAngle >= 2*math.pi:
+            startAngle -= 2*math.pi
+        
         if startAngle < 0:
-            e1 = 2*math.pi + startAngle
-            self.overlappingSensors.append((sensorCenter, sensor, e1, 2*math.pi, e1, distance) )
-            self.overlappingSensors.append((sensorCenter, sensor, 0, endAngle, extent - e1, distance) )
-            normal = False
+            while startAngle < 0:
+                startAngle += 2*math.pi
+            
+        
+            while endAngle < 0:
+                endAngle = 2* math.pi + endAngle
+            
+            if endAngle < startAngle:
+                self.overlappingSensors.append((sensorCenter, sensor, startAngle, 2*math.pi, 2*math.pi - startAngle, distance) )
+                self.overlappingSensors.append((sensorCenter, sensor, 0, endAngle, endAngle, distance) )
+            else:
+                normal = True
+                
+#             startAngle = 0
+#             normal = False
         else:
             normal = True
-            
+        
         if endAngle > 2 * math.pi:
             e1 = 2*math.pi - startAngle
+            
+            while endAngle > 2 * math.pi:
+                endAngle -= 2*math.pi
+                
+            extent = endAngle - 0
+            
             self.overlappingSensors.append((sensorCenter, sensor, startAngle, 2*math.pi, e1, distance) )
-            self.overlappingSensors.append((sensorCenter, sensor, 0, (endAngle - 2*math.pi), extent - e1, distance) )
+            self.overlappingSensors.append((sensorCenter, sensor, 0, endAngle, extent, distance) )
             normal = False
         else:
             normal = True
@@ -372,6 +475,12 @@ class SensorLocation:
         if normal == True:
             self.overlappingSensors.append((sensorCenter, sensor, startAngle, endAngle, extent, distance) )
 
+        self.overlappingCount += 1
+        
+    def clearOverlappingSensors(self):
+        self.overlappingSensors = []
+        self.overlappingCount = 0
+        
 # Class to represent the circles which cover a portion of the perimeter of         
 class CoveringCircle:
     def __init__(self, center, radius, s_ang, ext_ang, dist):
