@@ -2,10 +2,11 @@ import sys
 sys.path.append('E:\\git_repos\\MTP\\MTP')
 from Sensors import *
 import jdgeometry.geomfunctions as gf
+import numpy.random as urnd
 
 #--[Global Constants]----------------------------------------------------------
-SENSOR_TYPES = 5
-MAX_LOCS = 5
+SENSOR_TYPES = 6
+MAX_LOCS = 6
 MINX = 0
 MINY = 0
 MAXX = 400
@@ -78,18 +79,18 @@ def main():
 # 4. But, each sensor will also have the present location where it is placed currently
 # 5. We assume that each location has a sensor and then compute min reqd sensors
 
-    j=0
-    for i in xrange(0,SENSOR_TYPES):
-        # temp list of locations for a specific sensor type
+    j = 0
+    for i in range(SENSOR_TYPES):
         sns_loc_set = []
-         
-        for u in xrange(0,MAX_LOCS):
-             
-            # genr a random point within the AOI
-            #pt = Point( (random.random() * (AOI_P2.x - AOI_P1.x) + AOI_P1.x), (random.random() * (AOI_P2.y - AOI_P1.y) + AOI_P1.y) )
-            pt = Point( tstPts[j])
+        
+        ptx, pty = urnd.uniform(AOI_P1.x, AOI_P2.x,MAX_LOCS), urnd.uniform(AOI_P1.y,AOI_P2.y, MAX_LOCS)
+        
+        for u in range(MAX_LOCS):
             j += 1
+            
+            print "(%f,%f)" % (ptx[u],pty[u])
 
+            pt = Point (ptx[u], pty[u])
             # Generate sensors with arbit Ranges and Costs
             sns = Sensor(i,Rs[i],Cs[i],None,None)
             
@@ -108,6 +109,39 @@ def main():
             
             # Add the sensor generated to the list of sensors
             sens.append(sns)
+    
+    
+
+#     j=0
+#     for i in xrange(0,SENSOR_TYPES):
+#         # temp list of locations for a specific sensor type
+#         sns_loc_set = []
+#          
+#         for u in xrange(0,MAX_LOCS):
+#              
+#             # genr a random point within the AOI
+#             pt = Point( (random.random() * (AOI_P2.x - AOI_P1.x) + AOI_P1.x), (random.random() * (AOI_P2.y - AOI_P1.y) + AOI_P1.y) )
+#             #pt = Point( tstPts[j])
+#             j += 1
+# 
+#             # Generate sensors with arbit Ranges and Costs
+#             sns = Sensor(i,Rs[i],Cs[i],None,None)
+#             
+#             # Append this genr pt to the set of feasibile locations for the Sensor Type i 
+#             sns_loc_set.append(pt)
+#             
+#             i_loc = SensorLocation(pt,sns) # Create a sensor loc object 
+#             
+#             # "locs" list is appended with the sensor placed at that loc. i.e the SensorLocation object  
+#             locs.append(i_loc)
+#             
+#             # Update the list of feasible locations for sns (the sensor object of type i). The feasible loc list will be same for all sensors
+#             # of the same sensor type
+#             sns.s_loc = sns_loc_set
+#             sns.curloc= len(locs) - 1 #The last index to which the present genr loc was added
+#             
+#             # Add the sensor generated to the list of sensors
+#             sens.append(sns)
 
     
     # Copy of the location list. This will help in finding the overlapping 
@@ -166,17 +200,23 @@ def main():
         print "Cov"
     else:
         print "Not Cov"
-        #return
+        
+        for u in (range(len(locs))): #jIdxSet:
+            p = locsCopy[u].point
+            s = locsCopy[u].sensor
+            Circle(p,s.s_range).draw(win)
+        win.getMouse()
+        return
 #         
-#     for u in jIdxSet:
+#     for u in (range(len(locs))): #jIdxSet:
 #         p = locsCopy[u].point
 #         s = locsCopy[u].sensor
 #         Circle(p,s.s_range).draw(win)
-#        
+#         
 #     win.getMouse()
 #     return
-       
-      
+#        
+#       
     
 #     sens, locs = zip( *sorted(zip(sens,locs), key=lambda k: k[1].overlappingCount) )
      
